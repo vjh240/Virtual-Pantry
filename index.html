@@ -15,20 +15,19 @@
         <link href="plugin-frameworks/swiper.css" rel="stylesheet">
         <link href="fonts/ionicons.css" rel="stylesheet">
         <link href="common/styles.css" rel="stylesheet">
-
 </head>
 <body>
 
 <header>
         <div class="container">
-                <a class="logo" href="#"><img src="" alt="Logo"></a>
-                <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
+                <a class="logo" href="index.html"><img src="images/logo_VP/VP1+.png" alt="Logo"></a>
                 <ul class="main-menu font-mountainsre" id="main-menu">
+                        <a class="navbar-brand" href="index.html">Virtual Pantry</a>
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="02_about_us.html">ABOUT US</a></li>
                         <li><a href="05_contact.html">CONTACT</a></li>
                 </ul>
-                <div class="clearfix"></div>
+
         </div><!-- container -->
 </header>
 
@@ -40,36 +39,62 @@
                         <div class="dplay-tbl-cell center-text color-white">
                                 <h5><b>FIND OUT YOUR RECIPE</b></h5>
                                 <h1 class="mt-30 mb-15">Food & Analytics</h1>
-                                <h5><a href="#" class="btn-primaryc plr-25"><b>START HERE</b></a></h5>
+                                <h5>
+                                <!--form action="/action_page.php">
+                                <input list="ingredients" name="ing1">
+                                <input list="ingredients" name="ing2">
+                                 <datalist id="ingredients">
+                                        <option value="salt">
+                                        <option value="eggs">
+                                        <option value="baking powder">
+                                </datalist> 
+                                <button type="submit" onclick="IngredientRequest()">Search</button>                                               
+                                </form-->
+                                <div class="md-form form-sm m-2 col-xl-5 mx-auto">
+                                  <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete" placeholder="First Ingredient">  
+                                </div>
+                                <div class="md-form form-sm m-2 col-xl-5 mx-auto">
+                                  <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete" placeholder="Second Ingredient">
+                                </div>
+                                <div>
+                                <a href="#" type="submit" class="btn-primaryc plr-25" onclick="IngredientRequest()"><b>START HERE</b></a>
+                                </div>
+                                </h5>
                         </div><!-- dplay-tbl-cell -->
                 </div><!-- dplay-tbl -->
         </div><!-- container -->
 </section>
 
 
-<section class="story-area left-text center-sm-text pos-relative">
+<section class="story-area left-text center-sm-text pos-relative">        
+        <!--div class="abs-tbl bg-2 w-20 z--1 dplay-md-none"></div>
+        <div class="abs-tbr bg-3 w-20 z--1 dplay-md-none"></div-->
         <div class="container">
                 <div class="heading">
-                        <img class="heading-img" src= alt="">
+                        <img class="heading-img" src="images/logo_VP/VP3.png" alt="">
                         <h2>Our Story</h2>
                 </div>
                 <div class="row">
-                        <div class="col-md-6">
-                                <p class="mb-30">We often find ourselves in situations where we are hungry, we want to eat healthily and we want to save money, but we only have 2-3 items in the refrigerator (oh and its cold outside!). What should we do? Should we take the hit and order in, should we just eat that packet of instant noodles or should we just curl up into a ball and sleep? We say, none of the above! Using this app you can find healthy and nutritious meals that require minimal ingredients (including those already in your refrigerator). So go ahead, try giving that healthy and frugal lifestyle a try.</p>
-                        </div><!-- col-md-6 -->
-
-                        <div class="col-md-6">
+                        <!--div class="col-md-6"-->
+                                <p class="mb-30">We often find ourselves in situations where we are hungry, we want to eat healthily and we want to save money, but we only have 2-3 items in the refrigerator (oh and its cold outside!). What should we do? Should we take the hit and order in, should we just eat that packet of instant noodles or should we just curl up into a ball and sleep? We say, none of the above! Using this app you can find healthy and nutritious meals that require minimal ingredients (including those already in your refrigerator). So go ahead, try giving that healthy and frugal lifestyle a try.</p>                        
                                 <p class="mb-30">Welcome to the Virtual Pantry. </p>
-                        </div><!-- col-md-6 -->
+                        <!--/div--><!-- col-md-6 -->
                 </div><!-- row -->
         </div><!-- container -->
 </section>
 
+<section class="story-area bg-seller color-white pos-relative">
+        <div class="pos-bottom triangle-up"></div>
+        <div class="pos-top triangle-bottom"></div>
+        <div class="container">
+                <h4 class="font-30 font-sm-20  center-text mb-25">Choose your <b>Ingredients</b></h4>
+        </div><!-- container -->
+</section>
 
-<section>
+<section class="bg-lite-blue">
         <div class="container">
                 <div class="heading">
-                        <img class="heading-img" src= alt="">
+                        <img class="heading-img" src="images/logo_VP/VP3.png" alt="">
                         <h2>Ingredients</h2>
                 </div>
 
@@ -87,7 +112,7 @@
                 <div class="row">
                         <div class="col-md-6 food-menu">
                                 <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="g" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-left"><img class="br-3" src="" alt="Menu Image"></div><!--s-left-->
                                         <div class="s-right">
                                                 <h5 class="mb-10"><b>BEEF</b></h5>
                                                 <p class="pr-70">NA</p>
@@ -113,7 +138,7 @@
 <footer class="pb-50  pt-70 pos-relative">
         <div class="pos-top triangle-bottom"></div>
         <div class="container-fluid">
-                <a href="index.html"><img src="" alt="Logo"></a>
+                <a class="logo" href="#"><img src="" alt="Logo"></a>
                 <div class="pt-30">
                         <p class=""><b>Address: </b>Stern Business School, New York University, NY, New York</p>
                 </div>
@@ -128,6 +153,5 @@
 <script src="plugin-frameworks/bootstrap.min.js"></script>
 <script src="plugin-frameworks/swiper.js"></script>
 <script src="common/scripts.js"></script>
-
 </body>
 </html>
