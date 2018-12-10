@@ -9,6 +9,7 @@
         <!-- Font -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
         <link rel="stylesheet" href="fonts/beyond_the_mountains-webfont.css" type="text/css"/>
+        <link rel="stylesheet" href="fonts/font-awesome.min.css" type="text/css"/>
 
         <!-- Stylesheets -->
         <link href="plugin-frameworks/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +20,7 @@
 <body>
 
 <header>
-        <div class="container">
+        <!--div class="container">
                 <a class="logo" href="index.html"><img src="images/logo_VP/VP1+.png" alt="Logo"></a>
                 <ul class="main-menu font-mountainsre" id="main-menu">
                         <li><a href="index.html">HOME</a></li>
@@ -27,6 +28,37 @@
                         <li><a href="05_contact.html">CONTACT</a></li>
                 </ul>
         </div><!-- container -->
+<!--/header-->
+<nav class="navbar navbar-expand-lg">
+        <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="logo" href="#"><img src="images/logo_VP/VP1+.png" class="d-inline-block align-top" alt="logo"></a>
+        </div>
+        <div class="container-fluid">              
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right main-menu font-mountainsre" id="mainmenu">
+                                <li class="nav-item active" style="font-size:1.2rem;"><a href="index.html" class="nav-link">Home</a></li>
+                                <li class="nav-item" style="font-size:1.2rem;"><a href="02_about_us.html" class="nav-link ">About</a></li>
+                                <li class="nav-item" style="font-size:1.2rem;"><a href="05_contact.html" class="nav-link ">Contact</a></li>
+                        </ul>                        
+                </div><!-- collapse -->                              
+                <form class="form-inline my-2 my-lg-0 ">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form><!--form-->
+                <div class="ml-2">
+                        <ul class="nav navbar-nav navbar-right">
+                        <!--i class="fa fa-user active"></i>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li-->
+                        <button class="btn btn-info btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#navbarLogin">Log In
+                        <i class="fa fa-sign-in ml-2"></i>
+                        </button>
+                        </ul>
+                </div> <!--div--> 
+        </div><!-- container-fluid -->
+</nav>
 </header>
 
 
@@ -38,26 +70,20 @@
                                 <h5><b>Hi there</b></h5>
                                 <h1 class="mt-30 mb-15">Find out your recipe</h1>
                                 <h5>
-                                <!--form action="/action_page.php">
-                                <input list="ingredients" name="ing1">
-                                <input list="ingredients" name="ing2">
-                                 <datalist id="ingredients">
-                                        <option value="salt">
-                                        <option value="eggs">
-                                        <option value="baking powder">
-                                </datalist> 
-                                <button type="submit" onclick="IngredientRequest()">Search</button>                                               
-                                </form-->
                                 <div class="md-form form-sm m-2 col-xl-5 mx-auto">
-                                  <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete" placeholder="First Ingredient">  
+                                  <input type="search" id="form-autocomplete1" class="form-control mdb-autocomplete" placeholder="First Ingredient">  
                                 </div>
                                 <div class="md-form form-sm m-2 col-xl-5 mx-auto">
-                                  <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete" placeholder="Second Ingredient">
+                                  <input type="search" id="form-autocomplete2" class="form-control mdb-autocomplete" placeholder="Second Ingredient">
                                 </div>
                                 <div>
-                                <a href="#" type="submit" class="btn-primaryc plr-25 mt-2" onclick="IngredientRequest()"><b>START HERE</b></a>
+                                <a href="#" class="btn-primaryc plr-25 mt-2" onclick="IngredientSearch()"><b>START HERE</b></a>
                                 </div>
-                                </h5>
+                                <p id="test">test here</p>
+                                <img id="egimg" src="" alt="Menu Image">
+                                <a href="#" id="egname" onclick=""><b>NA</b></a>
+                                <p id="egdes" >NA</p>
+                                </h5>         
                         </div><!-- dplay-tbl-cell -->
                 </div><!-- dplay-tbl -->
         </div><!-- container -->
@@ -92,43 +118,62 @@
         <div class="container">
                 <div class="heading">
                         <img class="heading-img" src="images/logo_VP/VP3.png" alt="">
-                        <h2>Ingredients</h2>
+                        <h2>Recipes</h2>
                 </div>
-
                 <div class="row">
                         <div class="col-sm-12">
                                 <ul class="selecton brdr-b-primary mb-70">
                                         <li><a class="active" href="#" data-select="*"><b>ALL</b></a></li>
-                                        <li><a href="#" data-select="protein"><b>PROTEIN</b></a></li>
-                                        <li><a href="#" data-select="vege"><b>VEGETABLE</b></a></li>
-                                        <li><a href="#" data-select="other"><b>OTHER</b></a></li>
+                                        <li><a href="#" data-select="protein"><b>ITALIAN</b></a></li>
+                                        <li><a href="#" data-select="vege"><b>AMERICAN</b></a></li>
+                                        <li><a href="#" data-select="other"><b>ASIAN</b></a></li>
                                 </ul>
                         </div><!--col-sm-12-->
                 </div><!--row-->
 
                 <div class="row">
-                        <div class="col-md-6 food-menu">
+                        <div class="col-md-6 food-menu" id="re1">
                                 <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-left"><img class="br-3"  src="" alt="Menu Image"></div><!--s-left-->
                                         <div class="s-right">
-                                                <h5 class="mb-10"><b>BEEF</b></h5>
-                                                <p class="pr-70">NA</p>
+                                                <h5 class="mb-10"><b>NA</b></h5>
+                                                <p  class="pr-70">NA</p>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->
 
-                        <div class="col-md-6 food-menu">
+                        <div class="col-md-6 food-menu" id="re2" >
                                 <div class="sided-90x mb-30 ">
                                         <div class="s-left"><img class="br-3" src="" alt="Menu Image"></div><!--s-left-->
                                         <div class="s-right">
-                                                <h5 class="mb-10"><b>CHICKEN</b></h5>
+                                                <h5 class="mb-10"><b>NA</b></h5>
                                                 <p class="pr-70">NA </p>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->
+
+                        <div class="col-md-6 food-menu" id="re3" >
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10"><b>NA</b></h5>
+                                                <p  class="pr-70">NA</p>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->
+
+                        <div class="col-md-6 food-menu" id="re4">
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10"><b>NA</b></h5>
+                                                <p  class="pr-70">NA</p>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->
                 </div><!-- row -->
 
-                <h6 class="center-text mt-40 mt-sm-20 mb-30"><a href="#" class="btn-primaryc plr-25"><b>SEE PANTRY</b></a></h6>
+                <h6 class="center-text mt-20 mt-sm-10 mb-15"><a href="#" class="btn-primaryc plr-15"><b>Next Page</b></a></h6>
         </div><!-- container -->
 </section>
 
@@ -136,12 +181,20 @@
         <div class="pos-top triangle-bottom"></div>
         <div class="container-fluid">
                 <a class="logo" href="#"><img class="col-md-2 px-0" src="images/logo_VP/VP1+.png" alt="Logo"></a>
-                <div class="pt-30">
-                        <p class=""><b>Address: </b>Stern Business School, New York University, NY, New York</p>
-                </div>
-		<div class="pt-30">
+                <div class="row">
+                <div class="pt-30 small-12 column">
+                        <ul class="social-media-list no-bullet">
+                                <li class="social-media-list__list-item"><a aria-label="Facebook" class="social-media-list__icon" href="https://www.facebook.com"> <svg class="icon icon-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use></svg> </a></li>
+                                <li class="social-media-list__list-item"><a aria-label="Twitter" class="social-media-list__icon" href="https://twitter.com"> <svg class="icon icon-twitter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg> </a></li>
+                                <li class="social-media-list__list-item"><a aria-label="YouTube" class="social-media-list__icon" href="https://www.youtube.com"> <svg class="icon icon-youtube"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg> </a></li>
+                                <li class="social-media-list__list-item"><a aria-label="LinkedIn" class="social-media-list__icon" href="https://www.linkedin.com"> <svg class="icon icon-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use></svg> </a></li>
+                                <li class="social-media-list__list-item"><a aria-label="Instagram"class="social-media-list__icon" href="https://www.instagram.com"> <svg class="icon icon-instagram"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use></svg> </a></li>
+                        </ul>
+                        <p class="global-footer__campus-address">Stern Business School, New York University, New York, NY 11201-2531 · <a href="tel:11112222">917.111.0000</a></p>   
                         <p class=""><b>Project: </b>INFO-web design & mobile development</p>
-                </div>
+                        <p class="global-footer__copyright">©2018 New York University. All Rights Reserved.</p>
+                </div><!-- column -->
+        </div><!-- row -->
         </div><!-- container -->
 </footer>
 

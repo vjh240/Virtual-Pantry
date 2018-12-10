@@ -1,3 +1,37 @@
+
+function IngredientSearch () {
+        $("#test").text("test again1"); 
+        var key = "PceKzy1SbMmshlGe7UK7JiFA7ioep1uB4WZjsnDRgfNeFJPoJm"; 
+        var num=5;
+        url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients="
+        var ing11=document.getElementById("form-autocomplete1").value;
+        var ing22=document.getElementById("form-autocomplete2").value;
+        url = url + ing11 + "%2C" + ing22;
+        //$("#test").text(httpGet(url,key));
+        var testobj = JSON.parse(httpGet(url,key));
+        //$("#test").text(testobj[0].id+":"+testobj[0].title);
+        //$("#egimg").src(testobj[0].image);
+        $("#egname").text(testobj[0].id+":"+testobj[0].title);
+        $("#egdes").text(testobj[0].likes);
+        $("#test").text("test again2"); //correct
+        urlbulk = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/informationBulk?ids="
+        for(i=0;i<num-1;i++)
+        {
+              urlbulk = urlbulk + testobj[i].id + "%2C";  
+        } 
+        urlbulk+=testobj[num-1].id;
+        //urlbulk = urlbulk + testobj[0].id + "%2C"+testobj[1].id; 
+        $("#test").text(httpGet(urlbulk,key));
+}
+
+function httpGet(url,key){
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", url, false );
+    xmlHttp.setRequestHeader("X-RapidAPI-Key",key);
+    xmlHttp.send(null);
+    return xmlHttp.responseText;
+}
+
 function selectedActive(elem) {
         var selectedAttr = $(elem),
                 selectionID = "." + $(selectedAttr).data("select");

@@ -868,19 +868,19 @@ section {
 
 .bg-1 { background: url(../images/slider_1_lettuce.jpg) no-repeat center; background-size: cover; }
 
-.bg-2 { background: url(../images/slider_1_lettuce.jpg) no-repeat center; background-size: 100%; }
+.bg-2 {   background: url(../images/story_bg_1.png) no-repeat center; background-size: 100%; }
 
-.bg-3 {  background: url(../images/slider_1_lettuce.jpg) no-repeat center;  background-size: 100%; }
+.bg-3 {  background: url(../images/story_bg_2.png) no-repeat center;  background-size: 100%; }
 
-.bg-4 {  background: url(../images/slider_1_lettuce.jpg) no-repeat center;  background-size: cover; }
+.bg-4 {  background: url(../images/slider_6_blue.jpg) no-repeat center;  background-size: cover; }
 
-.bg-5 {  background: url(../images/slider_1_lettuce.jpg) no-repeat center;  background-size: cover; }
+.bg-5 {  background: url(../images/slider_3_cabbage.jpg) no-repeat center;  background-size: cover; }
 
-.bg-6 {  background: url(../images/slider_1_lettuce.jpg) no-repeat center;  background-size: cover; }
+.bg-6 {  background: url(../images/slider_2_empty_table.jpg) no-repeat center;  background-size: cover; }
 
-.bg-7 {  background: url(../images/slider_1_lettuce.jpg) no-repeat center;  background-size: cover; }
+.bg-7 {  background: url(../images/slider_4_wood.jpg) no-repeat center;  background-size: cover; }
 
-.bg-8 {  background: url(../images/slider_1_lettuce.jpg) no-repeat center;  background-size: cover; }
+.bg-8 {  background: url(../images/slider_7_coffee.jpg) no-repeat center;  background-size: cover; }
 
 .bg-grad-layer-6:after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; opacity: .6;
         background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, .4) 100%); }
@@ -1498,9 +1498,9 @@ ul.selecton li a.active{ border-radius: 3px 3px 0 0; background: #EF0031; color:
 
 /*FOOTER*/
 
-footer{ background: url("../images/footer_1600x800.jpg") no-repeat; background-size: cover;  position: relative;  text-align: center;z-index: 1;  font-size: 1.3em; }
+footer{ background: url("../images/footer_1_oranges.jpg") no-repeat; background-size: cover;  position: relative;  text-align: center;z-index: 1;  font-size: 1.3em; }
 
-.footer-bg-1{ background-image:  url("../images/footer-1.png") ; }
+.footer-bg-1{ background-image:  url("../images/footer_1_oranges.jpg") ; }
 .footer-bg-1:after{ display: none; }
 
 footer,
