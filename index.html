@@ -20,43 +20,34 @@
 <body>
 
 <header>
-        <!--div class="container">
-                <a class="logo" href="index.html"><img src="images/logo_VP/VP1+.png" alt="Logo"></a>
-                <ul class="main-menu font-mountainsre" id="main-menu">
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="02_about_us.html">ABOUT US</a></li>
-                        <li><a href="05_contact.html">CONTACT</a></li>
-                </ul>
-        </div><!-- container -->
-<!--/header-->
 <nav class="navbar navbar-expand-lg">
-        <div class="navbar-header">
+        <div class="container-fluid"> 
+            <div class="navbar-header">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="logo" href="#"><img src="images/logo_VP/VP1+.png" class="d-inline-block align-top" alt="logo"></a>
-        </div>
-        <div class="container-fluid">              
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right main-menu font-mountainsre" id="mainmenu">
-                                <li class="nav-item active" style="font-size:1.2rem;"><a href="index.html" class="nav-link">Home</a></li>
-                                <li class="nav-item" style="font-size:1.2rem;"><a href="02_about_us.html" class="nav-link ">About</a></li>
-                                <li class="nav-item" style="font-size:1.2rem;"><a href="05_contact.html" class="nav-link ">Contact</a></li>
-                        </ul>                        
-                </div><!-- collapse -->                              
-                <form class="form-inline my-2 my-lg-0 ">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form><!--form-->
-                <div class="ml-2">
-                        <ul class="nav navbar-nav navbar-right">
-                        <!--i class="fa fa-user active"></i>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li-->
-                        <button class="btn btn-info btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#navbarLogin">Log In
-                        <i class="fa fa-sign-in ml-2"></i>
-                        </button>
-                        </ul>
-                </div> <!--div--> 
+            </div> <!--nav-header-->             
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="main-menu font-mountainsre" id="mainmenu">
+                            <li class="nav-item active" style="font-size:1.2rem;"><a href="index.html" class="nav-link">Home</a></li>
+                            <li class="nav-item" style="font-size:1.2rem;"><a href="02_about_us.html" class="nav-link ">About</a></li>
+                            <li class="nav-item" style="font-size:1.2rem;"><a href="05_contact.html" class="nav-link ">Contact</a></li>
+                    </ul>                        
+            </div><!-- collapse -->                             
+            <form class="form-inline my-2 my-sm-2">
+                <input class="form-control " type="search" placeholder="Search" aria-label="Search">                
+                <button class="btn btn-outline-success my-2 ml-sm-2 my-sm-0" type="submit">Search<i class="fa fa-search ml-2"></i></button>
+            </form><!--form-->
+            <div class="login" id="navbar-login">
+                <ul class="nav navbar-nav navbar-right">
+                <!--i class="fa fa-user active"></i>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li-->
+                <button class="btn btn-info btn-outline-success my-2 ml-sm-2 my-sm-0" onclick="location.href='08_login.html';" data-toggle="modal" data-target="#navbarLogin">Log In
+                <i class="fa fa-sign-in ml-2"></i>
+                </button>
+                </ul>
+            </div><!--login-->
         </div><!-- container-fluid -->
 </nav>
 </header>
@@ -80,9 +71,9 @@
                                 <a href="#" class="btn-primaryc plr-25 mt-2" onclick="IngredientSearch()"><b>START HERE</b></a>
                                 </div>
                                 <p id="test">test here</p>
-                                <img id="egimg" src="" alt="Menu Image">
+                                <!--img id="egimg" src="" alt="Menu Image">
                                 <a href="#" id="egname" onclick=""><b>NA</b></a>
-                                <p id="egdes" >NA</p>
+                                <p id="egdes" >NA</p-->
                                 </h5>         
                         </div><!-- dplay-tbl-cell -->
                 </div><!-- dplay-tbl -->
@@ -91,14 +82,16 @@
 
 
 <section class="story-area left-text center-sm-text pos-relative">        
-        <!--div class="abs-tbl bg-2 w-20 z--1 dplay-md-none"></div>
-        <div class="abs-tbr bg-3 w-20 z--1 dplay-md-none"></div-->
+        <div class="abs-tbl bg-2 w-15 z--1 dplay-md-none"></div>
+        <div class="abs-tbr bg-3 w-15 z--1 dplay-md-none"></div>
         <div class="container">
                 <div class="heading">
                         <img class="heading-img" src="images/logo_VP/VP3.png" alt="">
                         <h2>Our Story</h2>
+                        <h5 class="mt-10 mb-30">Where the idea started</h5>
+                        <p class="mx-w-700x mlr-auto"></p>
                 </div>
-                <div class="row">
+                <div class="d-flex flex-row">
                         <div class="col-md-10 mx-auto">
                                 <p class="mb-30">We often find ourselves in situations where we are hungry, we want to eat healthily and we want to save money, but we only have 2-3 items in the refrigerator (oh and its cold outside!). What should we do? Should we take the hit and order in, should we just eat that packet of instant noodles or should we just curl up into a ball and sleep? We say, none of the above! Using this app you can find healthy and nutritious meals that require minimal ingredients (including those already in your refrigerator). So go ahead, try giving that healthy and frugal lifestyle a try.</p>
                         </div><!-- col-md-6-->
@@ -115,12 +108,12 @@
 </section>
 
 <section class="bg-lite-blue">
-        <div class="container">
+        <div class="container-fluid">
                 <div class="heading">
                         <img class="heading-img" src="images/logo_VP/VP3.png" alt="">
                         <h2>Recipes</h2>
                 </div>
-                <div class="row">
+                <div class="row" id="menu-header">
                         <div class="col-sm-12">
                                 <ul class="selecton brdr-b-primary mb-70">
                                         <li><a class="active" href="#" data-select="*"><b>ALL</b></a></li>
@@ -131,49 +124,72 @@
                         </div><!--col-sm-12-->
                 </div><!--row-->
 
-                <div class="row">
+                <div class="row" id="menu-grid">
+                        <div class="col-md-6 food-menu" id="re0">
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" id="menu0img" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10" id="menu0name"></h5>
+                                                <p  class="pr-70" id="menu0id"></p>
+                                                <p  class="pr-70" id="menu0like"></p>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->
                         <div class="col-md-6 food-menu" id="re1">
                                 <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3"  src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-left"><img class="br-3" id="menu1img" src="" alt="Menu Image"></div><!--s-left-->
                                         <div class="s-right">
-                                                <h5 class="mb-10"><b>NA</b></h5>
-                                                <p  class="pr-70">NA</p>
+                                                <h5 class="mb-10" id="menu1name"></h5>
+                                                <p  class="pr-70" id="menu1id"></p>
+                                                <p  class="pr-70" id="menu1like"></p>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->
 
                         <div class="col-md-6 food-menu" id="re2" >
                                 <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-left"><img class="br-3" id="menu2img" src="" alt="Menu Image"></div><!--s-left-->
                                         <div class="s-right">
-                                                <h5 class="mb-10"><b>NA</b></h5>
-                                                <p class="pr-70">NA </p>
+                                                <h5 class="mb-10" id="menu2name"><b></b></h5>
+                                                <p  class="pr-70" id="menu2id"></p>
+                                                <p class="pr-70" id="menu2like"></p>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->     
+                        <div class="col-md-6 food-menu" id="re3">
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" id="menu3img" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10" id="menu3name"></h5>
+                                                <p  class="pr-70" id="menu3id"></p>
+                                                <p  class="pr-70" id="menu3like"></p>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->
 
-                        <div class="col-md-6 food-menu" id="re3" >
+                        <div class="col-md-6 food-menu" id="re4" >
                                 <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-left"><img class="br-3" id="menu4img" src="" alt="Menu Image"></div><!--s-left-->
                                         <div class="s-right">
-                                                <h5 class="mb-10"><b>NA</b></h5>
-                                                <p  class="pr-70">NA</p>
+                                                <h5 class="mb-10" id="menu4name"><b></b></h5>
+                                                <p  class="pr-70" id="menu4id"></p>
+                                                <p class="pr-70" id="menu4like"></p>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
-                        </div><!-- food-menu -->
-
-                        <div class="col-md-6 food-menu" id="re4">
+                        </div><!-- food-menu -->    
+                        <div class="col-md-6 food-menu" id="re5">
                                 <div class="sided-90x mb-30 ">
-                                        <div class="s-left"><img class="br-3" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-left"><img class="br-3" id="menu5img" src="" alt="Menu Image"></div><!--s-left-->
                                         <div class="s-right">
-                                                <h5 class="mb-10"><b>NA</b></h5>
-                                                <p  class="pr-70">NA</p>
+                                                <h5 class="mb-10" id="menu5name"></h5>
+                                                <p  class="pr-70" id="menu5id"></p>
+                                                <p  class="pr-70" id="menu5like"></p>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
-                        </div><!-- food-menu -->
+                        </div><!-- food-menu -->                  
                 </div><!-- row -->
 
-                <h6 class="center-text mt-20 mt-sm-10 mb-15"><a href="#" class="btn-primaryc plr-15"><b>Next Page</b></a></h6>
+                <h6 class="center-text mt-10 mt-sm-10 mb-15"><a href="#" onClick="renderMenu(this.index)" class="btn-primaryc plr-15"><b>Next Page</b></a></h6>
         </div><!-- container -->
 </section>
 
@@ -181,20 +197,19 @@
         <div class="pos-top triangle-bottom"></div>
         <div class="container-fluid">
                 <a class="logo" href="#"><img class="col-md-2 px-0" src="images/logo_VP/VP1+.png" alt="Logo"></a>
-                <div class="row">
-                <div class="pt-30 small-12 column">
-                        <ul class="social-media-list no-bullet">
-                                <li class="social-media-list__list-item"><a aria-label="Facebook" class="social-media-list__icon" href="https://www.facebook.com"> <svg class="icon icon-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use></svg> </a></li>
-                                <li class="social-media-list__list-item"><a aria-label="Twitter" class="social-media-list__icon" href="https://twitter.com"> <svg class="icon icon-twitter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg> </a></li>
-                                <li class="social-media-list__list-item"><a aria-label="YouTube" class="social-media-list__icon" href="https://www.youtube.com"> <svg class="icon icon-youtube"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg> </a></li>
-                                <li class="social-media-list__list-item"><a aria-label="LinkedIn" class="social-media-list__icon" href="https://www.linkedin.com"> <svg class="icon icon-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use></svg> </a></li>
-                                <li class="social-media-list__list-item"><a aria-label="Instagram"class="social-media-list__icon" href="https://www.instagram.com"> <svg class="icon icon-instagram"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use></svg> </a></li>
-                        </ul>
-                        <p class="global-footer__campus-address">Stern Business School, New York University, New York, NY 11201-2531 · <a href="tel:11112222">917.111.0000</a></p>   
-                        <p class=""><b>Project: </b>INFO-web design & mobile development</p>
-                        <p class="global-footer__copyright">©2018 New York University. All Rights Reserved.</p>
+                <div class="pt-30 d-flex flex-row justify-content-center">
+                <div class="d-flex flex-column ">
+                        <!--ul class="social-media-list no-bullet">
+                        <li class="social-media-list__list-item"><a aria-label="Facebook" class="social-media-list__icon" href=""> <svg class="icon icon-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="Twitter" class="social-media-list__icon" href=""> <svg class="icon icon-twitter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="YouTube" class="social-media-list__icon" href=""> <svg class="icon icon-youtube"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="LinkedIn" class="social-media-list__icon" href=""> <svg class="icon icon-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="Instagram" class="social-media-list__icon" href=""> <svg class="icon icon-instagram"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use></svg> </a></li>
+                        </ul-->
+                        <p class="footer-project"><b>Project: </b>INFO-web design & mobile development</p><p class="footer-address">Stern Business School, New York University, New York, NY 11201-2531 · <a href="tel:9171110000">917.111.0000</a></p>                           
+                        <p class="footer-copyright">©2018 New York University. All Rights Reserved.</p>
                 </div><!-- column -->
-        </div><!-- row -->
+                </div><!-- row -->
         </div><!-- container -->
 </footer>
 

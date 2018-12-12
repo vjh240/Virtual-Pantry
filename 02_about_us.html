@@ -19,18 +19,40 @@
 <body>
 
 
+
 <header>
-        <div class="container">
-                <a class="logo" href="#"><img src="images/logo_VP/VP1+.png" alt="Logo"></a>
-                <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
-                <ul class="main-menu font-mountainsre" id="main-menu">
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="02_about_us.html">ABOUT US</a></li>
-                        <li><a href="05_contact.html">CONTACT</a></li>
+<nav class="navbar navbar-expand-lg">
+        <div class="container-fluid"> 
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="logo" href="#"><img src="images/logo_VP/VP1+.png" class="d-inline-block align-top" alt="logo"></a>
+            </div> <!--nav-header-->             
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="main-menu font-mountainsre" id="mainmenu">
+                            <li class="nav-item active" style="font-size:1.2rem;"><a href="index.html" class="nav-link">Home</a></li>
+                            <li class="nav-item" style="font-size:1.2rem;"><a href="02_about_us.html" class="nav-link ">About</a></li>
+                            <li class="nav-item" style="font-size:1.2rem;"><a href="05_contact.html" class="nav-link ">Contact</a></li>
+                    </ul>                        
+            </div><!-- collapse -->                             
+            <form class="form-inline my-2 my-sm-2">
+                <input class="form-control " type="search" placeholder="Search" aria-label="Search">                
+                <button class="btn btn-outline-success my-2 ml-sm-2 my-sm-0" type="submit">Search<i class="fa fa-search ml-2"></i></button>
+            </form><!--form-->
+            <div class="login" id="navbar-login">
+                <ul class="nav navbar-nav navbar-right">
+                <!--i class="fa fa-user active"></i>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li-->
+                <button class="btn btn-info btn-outline-success my-2 ml-sm-2 my-sm-0" data-toggle="modal" data-target="#navbarLogin">Log In
+                <i class="fa fa-sign-in ml-2"></i>
+                </button>
                 </ul>
-                <div class="clearfix"></div>
-        </div><!-- container -->
+            </div><!--login-->
+        </div><!-- container-fluid -->
+</nav>
 </header>
+
 
 <section class="bg-4 h-500x main-slider pos-relative">
         <div class="triangle-up pos-bottom"></div>
@@ -45,35 +67,41 @@
 </section>
 
 
-<section class="story-area color-white pos-relative">
+<section class="story-area pos-relative">
         <div class="pos-bottom triangle-up"></div>
         <div class="container">
-                <div>
-                        <div class="swiper-wrapper pb-60 pb-sm-60 left-text center-sm-text">
-                                <div class="pb-30">
-                                        <h4>Yu-Ting Chiu</h4>
-                                        <img class="circle-60 mb-20"
-                                             src="" alt="">
+                <div class="heading">
+                        <img class="heading-img" src="images/logo_VP/VP3.png" alt="">
+                        <h2>People</h2>
+                        <h5 class="mt-10 mb-30">Learn more about us</h5>
+                        <p class="mx-w-700x mlr-auto"></p>
+                </div>
+                <div class="row">
+                        <!--div class="swiper-wrapper pb-60 pb-sm-60 left-text center-sm-text"-->
+                                <div class="pt-40 pb-60 col-sm-3">       
+                                        <img class="circle-80 mb-20"
+                                             src="images/Team/profile_yuting.jpg" alt=""> 
+                                        <h4 class="color-primary">Yu-Ting Chiu</h4>
                                         <h6><b class="color-primary">BACKEND DEVELOPER</b></h6>
                                 </div><!-- swiper-slide -->
-                                <div class="pb-30">
-                                        <h4>Ratika Goyal</h4>
-                                        <img class="circle-60 mb-20" src="" alt="">
-                                        <h6><b class="color-primary">VISUAL DESIGNER</b>
+                                <div class="pt-40 pb-60  col-sm-3">             
+                                        <img class="circle-80 mb-20" src="" alt="images/Team/profile_ratika.jpg">
+                                        <h4 class="color-primary">Ratika Goyal</h4>
+                                        <h6><b class="color-primary">BUSINESS ANALYST</b>
                                         </h6>
                                 </div><!-- swiper-slide -->
-                                <div class="pb-30">
-                                        <h4>Vincent Hamalainen</h4>
-                                        <img class="circle-60 mb-20" src=""
+                                <div class="pt-40 pb-60 col-sm-3">
+                                        <img class="circle-80 mb-20" src="images/Team/profile_vincent.jpg"
                                              alt="">
+                                        <h4 class="color-primary">Vincent Hamalainen</h4>
                                         <h6><b class="color-primary">DATA ENGINEER</b></h6>
                                 </div><!-- swiper-slide -->
-								<div class="pb-30">
-                                        <h4>Geyi Zhang</h4>
-                                        <img class="circle-60 mb-20 " src="" alt="">
+								<div class="pt-40 pb-60 col-sm-3">                      
+                                        <img class="circle-80 mb-20 " src="images/Team/profile_geyi.jpg" alt="">
+                                        <h4 class="color-primary">Geyi Zhang</h4>
                                         <h6><b class="color-primary">FRONTEND DEVELOPER</b></h6>
                                 </div><!-- swiper-slide -->
-                        </div><!-- swiper-wrapper -->
+                        <!--/div--><!-- swiper-wrapper -->
                 </div><!-- swiper-container -->
         </div><!-- container -->
 </section>
@@ -83,15 +111,23 @@
 <footer class="pb-50  pt-70 pos-relative">
         <div class="pos-top triangle-bottom"></div>
         <div class="container-fluid">
-                <a href="index.html"><img class="col-md-2 px-0" src="images/logo_VP/VP1+.png" alt="Logo"></a>
-                <div class="pt-30">
-                        <p class=""><b>Address: </b>Stern Business School, New York University, NY, New York</p>
-                </div>
-                <div class="pt-30">
-                        <p class=""><b>Project: </b>INFO-web design & mobile development</p>
-                </div>
+                <a class="logo" href="#"><img class="col-md-2 px-0" src="images/logo_VP/VP1+.png" alt="Logo"></a>
+                <div class="pt-30 d-flex flex-row justify-content-center">
+                <div class="d-flex flex-column ">
+                        <!--ul class="social-media-list no-bullet">
+                        <li class="social-media-list__list-item"><a aria-label="Facebook" class="social-media-list__icon" href=""> <svg class="icon icon-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="Twitter" class="social-media-list__icon" href=""> <svg class="icon icon-twitter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="YouTube" class="social-media-list__icon" href=""> <svg class="icon icon-youtube"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="LinkedIn" class="social-media-list__icon" href=""> <svg class="icon icon-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="Instagram" class="social-media-list__icon" href=""> <svg class="icon icon-instagram"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use></svg> </a></li>
+                        </ul-->
+                        <p class="footer-project"><b>Project: </b>INFO-web design & mobile development</p><p class="footer-address">Stern Business School, New York University, New York, NY 11201-2531 · <a href="tel:9171110000">917.111.0000</a></p>                           
+                        <p class="footer-copyright">©2018 New York University. All Rights Reserved.</p>
+                </div><!-- column -->
+                </div><!-- row -->
         </div><!-- container -->
 </footer>
+
 
 <!-- SCIPTS -->
 <script src="plugin-frameworks/jquery-3.2.1.min.js"></script>

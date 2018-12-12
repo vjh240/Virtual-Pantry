@@ -1,27 +1,32 @@
-
+var searchResult;
 function IngredientSearch () {
-        $("#test").text("test again1"); 
         var key = "PceKzy1SbMmshlGe7UK7JiFA7ioep1uB4WZjsnDRgfNeFJPoJm"; 
-        var num=5;
-        url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients="
+        var num=10;
+        url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number="+num+"&ranking=1&ingredients="
         var ing11=document.getElementById("form-autocomplete1").value;
         var ing22=document.getElementById("form-autocomplete2").value;
         url = url + ing11 + "%2C" + ing22;
-        //$("#test").text(httpGet(url,key));
         var testobj = JSON.parse(httpGet(url,key));
-        //$("#test").text(testobj[0].id+":"+testobj[0].title);
-        //$("#egimg").src(testobj[0].image);
-        $("#egname").text(testobj[0].id+":"+testobj[0].title);
-        $("#egdes").text(testobj[0].likes);
-        $("#test").text("test again2"); //correct
+        //$("#egname").text(testobj[0].id+":"+testobj[0].title);
+        //document.getElementById("egimg").src=testobj[0].image;
+        //$("#egdes").text(testobj[0].likes);
+        //$("#test").text(httpGet(url,key));     
         urlbulk = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/informationBulk?ids="
         for(i=0;i<num-1;i++)
         {
               urlbulk = urlbulk + testobj[i].id + "%2C";  
         } 
         urlbulk+=testobj[num-1].id;
-        //urlbulk = urlbulk + testobj[0].id + "%2C"+testobj[1].id; 
-        $("#test").text(httpGet(urlbulk,key));
+        var searchResult= JSON.parse(httpGet(urlbulk,key));
+        //$("#test").text(httpGet(urlbulk,key));
+        //rendernMenu(0);
+        for(i=0;i<6;i++)
+        {
+            $("#menu"+i+"name").text(searchResult[i].title);
+            document.getElementById("menu"+i+"img").src=searchResult[i].image;
+            $("#menu"+i+"id").text(searchResult[i].id);
+            $("#menu"+i+"like").text("likes: "+searchResult[i].likes);
+        }
 }
 
 function httpGet(url,key){
@@ -31,6 +36,20 @@ function httpGet(url,key){
     xmlHttp.send(null);
     return xmlHttp.responseText;
 }
+function renderMenu(page){
+    //const container = document.getElementById('menu-grid');
+    //ReactDOM.render(element, container);
+    $("#test").text("renderMenu");
+    for(i=page*6;i<page*6+6;i++)
+    {
+        $("#menu"+i+"name").text(searchResult[i].title);
+        document.getElementById("menu1img").src=searchResult[i].image;
+        $("#menu"+i+"id").text(searchResult[i].id);
+        $("#menu"+i+"like").text("likes: "+searchResult[i].likes);
+    }
+ 
+}
+
 
 function selectedActive(elem) {
         var selectedAttr = $(elem),
@@ -114,6 +133,7 @@ function enableRadialProgress(){
         });
 }
 
+
 (function ($) {
 
         "use strict";
@@ -147,7 +167,6 @@ function enableRadialProgress(){
                 return false;
         });
 
-
         // DROPDOWN MENU
 
         var winWidth = $(window).width();
@@ -170,7 +189,6 @@ function enableRadialProgress(){
 
 
 })(jQuery);
-
 
 function dropdownMenu(winWidth) {
 
@@ -266,7 +284,6 @@ function enableSwiper() {
 
         }
 }
-
 function isExists(elem) {
         if ($(elem).length > 0) {
                 return true;
@@ -279,9 +296,9 @@ function initMap() {
         // Create a map object, and include the MapTypeId to add
         // to the map type control.
 
-        var uluru = {lat: 56.946285, lng: 24.105078};
+        var uluru = {lat: 40.729366, lng:  -73.996149};
         var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
+                zoom: 10,
                 center: uluru
         });
 
