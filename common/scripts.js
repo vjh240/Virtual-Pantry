@@ -51,6 +51,17 @@ function renderMenu(page){
 }
 
 
+function saveRecipe(url, recipeJSON){
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "POST", url, true );
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");	
+	xmlHttp.send(recipeJSON);
+	return xmlHttp.responseText;
+	//if 'good' is returned then good
+	//else 'recipe exists'
+	//this function is for both simple and complex recipe, depends on different url
+}
+
 function selectedActive(elem) {
         var selectedAttr = $(elem),
                 selectionID = "." + $(selectedAttr).data("select");
