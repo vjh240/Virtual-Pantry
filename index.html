@@ -19,39 +19,36 @@
 </head>
 <body>
 
+
 <header>
-<nav class="navbar navbar-expand-lg">
-        <div class="container-fluid"> 
-            <div class="navbar-header">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="logo" href="#"><img src="images/logo_VP/VP1+.png" class="d-inline-block align-top" alt="logo"></a>
-            </div> <!--nav-header-->             
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid"> 
+            <!--div class="navbar-header"-->
+            <a class="logo" href="#"><img src="images/logo_VP/VP1+.png" class="d-inline-block align-top" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>                
+            <!--/div--> <!--nav-header-->             
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul class="main-menu font-mountainsre" id="mainmenu">
-                            <li class="nav-item active" style="font-size:1.2rem;"><a href="index.html" class="nav-link">Home</a></li>
-                            <li class="nav-item" style="font-size:1.2rem;"><a href="02_about_us.html" class="nav-link ">About</a></li>
-                            <li class="nav-item" style="font-size:1.2rem;"><a href="05_contact.html" class="nav-link ">Contact</a></li>
-                    </ul>                               
-            <form class="form-inline my-2 my-sm-2">
-                <input class="form-control " type="search" placeholder="Search" aria-label="Search">                
-                <button class="btn btn-outline-success my-2 ml-sm-2 my-sm-0" type="submit">Search<i class="fa fa-search ml-2"></i></button>
-            </form><!--form-->
-            <div class="login" id="navbar-login">
-                <ul class="nav navbar-nav navbar-right">
-                <!--i class="fa fa-user active"></i>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li-->
-                <button class="btn btn-info btn-outline-success my-2 ml-sm-2 my-sm-0" onclick="location.href='08_login.html';" data-toggle="modal" data-target="#navbarLogin">Log In
-                <i class="fa fa-sign-in ml-2"></i>
-                </button>
-                </ul>
-            </div><!--login-->
-		</div><!-- collapse -->    
-        </div><!-- container-fluid -->
+                <ul class="navbar-nav mr-auto" id="mainmenu">
+                    <li class="nav-item active ml-2" style="font-size:1.2rem;"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item ml-2" style="font-size:1.2rem;"><a href="02_about_us.html" class="nav-link ">About</a></li>
+                    <li class="nav-item ml-2" style="font-size:1.2rem;"><a href="05_contact.html" class="nav-link ">Contact</a></li>
+                </ul>                                    
+                <form class="form-inline my-2 my-sm-2">
+                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">                
+                    <button class="btn btn-outline-success my-2 ml-2 ml-sm-2 my-sm-0" type="submit"><i class="icon ion-ios-search"></i></button>
+                </form><!--form-->
+                <div class="login" id="navbar-login">
+                    <ul class="nav navbar-nav navbar-right">
+                    <button class="btn btn-info btn-outline-success my-2 ml-2 ml-sm-2 my-sm-0" onclick="location.href='08_login.html';" data-toggle="modal" data-target="#navbarLogin">Log In<i class="icon ion-ios-contact-outline ml-2 ml-sm-2"></i>
+                    </button>
+                    </ul>
+				</div><!--login-->
+			</div><!-- collapse --> 
+    </div><!-- container-fluid -->
 </nav>
 </header>
-
 
 <section class="bg-1 h-900x main-slider pos-relative">
         <div class="triangle-up pos-bottom"></div>
