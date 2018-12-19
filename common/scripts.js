@@ -10,8 +10,8 @@ function IngredientSearch () {
         //$("#egname").text(testobj[0].id+":"+testobj[0].title);
         //document.getElementById("egimg").src=testobj[0].image;
         //$("#egdes").text(testobj[0].likes);
-		$("#test").text("test again")
-        $("#test").text(httpGet(url,key));     
+		//$("#test").text("test again")
+        //$("#test").text(httpGet(url,key));     
         urlbulk = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/informationBulk?ids="
         for(i=0;i<num-1;i++)
         {
