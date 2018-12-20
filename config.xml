@@ -2,7 +2,7 @@
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>VirtualPantry</name>
     <description>
-        Virtual Pantry Project, Team6, Info-GB, Fall 2018, Stern School of Business
+        Virtual Pantry Project, Team6, INFO-GB-3322, Fall 2018, Stern School of Business
     </description>
     <author email="gz580@nyu.edu" href="https://github.com/mechelleamily">
         Geyi Zhang

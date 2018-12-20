@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+        <title>virtual pantry</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+		<!--phone gap-->
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+		<!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+		<!-- Good default declaration:
+		* gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+		* https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+		* Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+		* Create your own at http://cspisawesome.com
+		-->
+		<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+		<!--end phone gap-->
+		
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/beyond_the_mountains-webfont.css" type="text/css"/>
+        <link rel="stylesheet" href="fonts/font-awesome.min.css" type="text/css"/>
+
+        <!-- Stylesheets -->
+        <link href="plugins/bootstrap.min.css" rel="stylesheet">
+        <link href="plugins/swiper.css" rel="stylesheet">
+        <link href="fonts/ionicons.css" rel="stylesheet">
+        <link href="common/styles.css" rel="stylesheet">
+</head>
+<body>
+
+
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid"> 
+            <!--div class="navbar-header"-->
+            <a class="logo" href="#"><img src="images/logo_VP/VP1+.png" class="d-inline-block align-top" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>                
+            <!--/div--> <!--nav-header-->             
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="navbar-nav mr-auto" id="mainmenu">
+                    <li class="nav-item ml-2" style="font-size:1.2rem;"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item ml-2" style="font-size:1.2rem;"><a href="index-story.html" class="nav-link ">Story</a></li>
+                    <li class="nav-item ml-2" style="font-size:1.2rem;"><a href="02_about_us.html" class="nav-link ">About</a></li>
+                    <li class="nav-item ml-2" style="font-size:1.2rem;"><a href="05_contact.html" class="nav-link ">Contact</a></li>
+                </ul>                                    
+                <form class="form-inline my-2 my-sm-2">
+                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">                
+                    <button class="btn btn-outline-success my-2 ml-2 ml-sm-2 my-sm-0" type="submit"><i class="icon ion-ios-search"></i></button>
+                </form><!--form-->
+                <div class="login" id="navbar-login">
+                    <ul class="nav navbar-nav navbar-right">
+                    <button class="btn btn-info btn-outline-success my-2 ml-2 ml-sm-2 my-sm-0" onclick="location.href='08_login.html';" data-toggle="modal" data-target="#navbarLogin">Log In<i class="icon ion-ios-contact-outline ml-2 ml-sm-2"></i>
+                    </button>
+                    </ul>
+				</div><!--login-->
+			</div><!-- collapse --> 
+    </div><!-- container-fluid -->
+</nav>
+</header>
+
+<section class="bg-lite-blue">
+        <div class="container-fluid">
+                <div class="heading">
+                        <img class="heading-img" src="images/logo_VP/VP3.png" alt="">
+                        <h2>Recipes</h2>
+                </div>
+                <div class="row" id="menu-header">
+                        <div class="col-sm-12">
+                                <ul class="selecton brdr-b-primary mb-70">
+                                        <li><a class="active" href="#" data-select="*"><b>ALL</b></a></li>
+                                        <li><a href="#" data-select="protein"><b>ITALIAN</b></a></li>
+                                        <li><a href="#" data-select="vege"><b>AMERICAN</b></a></li>
+                                        <li><a href="#" data-select="other"><b>ASIAN</b></a></li>
+                                </ul>
+                        </div><!--col-sm-12-->
+                </div><!--row-->
+
+                <div class="row" id="menu-grid">
+                        <div class="col-md-6 food-menu" id="re0">
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" id="menu0img" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10" id="menu0name"></h5>
+                                                <p  class="pr-70" id="menu0id"></p>
+                                                <p  class="pr-70" id="menu0like"></p>
+                                                <a  class="pr-70" href="#" id="menu0url"></a>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->
+                        <div class="col-md-6 food-menu" id="re1">
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" id="menu1img" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10" id="menu1name"></h5>
+                                                <p  class="pr-70" id="menu1id"></p>
+                                                <p  class="pr-70" id="menu1like"></p>
+                                                <a  class="pr-70" href="#" id="menu1url"></a>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->
+
+                        <div class="col-md-6 food-menu" id="re2" >
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" id="menu2img" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10" id="menu2name"><b></b></h5>
+                                                <p  class="pr-70" id="menu2id"></p>
+                                                <p class="pr-70" id="menu2like"></p>
+                                                <a  class="pr-70" href="#" id="menu2url"></a>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->     
+                        <div class="col-md-6 food-menu" id="re3">
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" id="menu3img" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10" id="menu3name"></h5>
+                                                <p  class="pr-70" id="menu3id"></p>
+                                                <p  class="pr-70" id="menu3like"></p>
+                                                <a  class="pr-70" href="#" id="menu3url"></a>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->
+
+                        <div class="col-md-6 food-menu" id="re4" >
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" id="menu4img" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10" id="menu4name"><b></b></h5>
+                                                <p  class="pr-70" id="menu4id"></p>
+                                                <p class="pr-70" id="menu4like"></p>
+                                                <a  class="pr-70" href="#" id="menu4url"></a>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->    
+                        <div class="col-md-6 food-menu" id="re5">
+                                <div class="sided-90x mb-30 ">
+                                        <div class="s-left"><img class="br-3" id="menu5img" src="" alt="Menu Image"></div><!--s-left-->
+                                        <div class="s-right">
+                                                <h5 class="mb-10" id="menu5name"></h5>
+                                                <p  class="pr-70" id="menu5id"></p>
+                                                <p  class="pr-70" id="menu5like"></p>
+                                                <a  class="pr-70" href="#" id="menu5url"></a>
+                                        </div><!--s-right-->
+                                </div><!-- sided-90x -->
+                        </div><!-- food-menu -->                  
+                </div><!-- row -->
+
+                <h6 class="center-text mt-10 mt-sm-10 mb-15"><a href="#" onclick="RenderMenu()" class="btn-primaryc plr-15"><b>Next Page</b></a></h6>
+        </div><!-- container -->
+</section>
+
+<footer class="pb-50  pt-70 pos-relative">
+        <div class="pos-top triangle-bottom"></div>
+        <div class="container-fluid">
+                <a class="logo" href="#"><img class="col-md-2 px-0" src="images/logo_VP/VP1+.png" alt="Logo"></a>
+                <div class="pt-30 d-flex flex-row justify-content-center">
+                <div class="d-flex flex-column ">
+                        <!--ul class="social-media-list no-bullet">
+                        <li class="social-media-list__list-item"><a aria-label="Facebook" class="social-media-list__icon" href=""> <svg class="icon icon-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="Twitter" class="social-media-list__icon" href=""> <svg class="icon icon-twitter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="YouTube" class="social-media-list__icon" href=""> <svg class="icon icon-youtube"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="LinkedIn" class="social-media-list__icon" href=""> <svg class="icon icon-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use></svg> </a></li>
+                        <li class="social-media-list__list-item"><a aria-label="Instagram" class="social-media-list__icon" href=""> <svg class="icon icon-instagram"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use></svg> </a></li>
+                        </ul-->
+                        <p class="footer-project"><b>Project: </b>web design & mobile development</p><p class="footer-address">Leonard N. Stern School of Business, New York University, New York, NY 11201-2531 · <a href="tel:9171110000">917.111.0000</a></p>                           
+                        <p class="footer-copyright">©2018. All Rights Reserved.</p>
+                </div><!-- column -->
+                </div><!-- row -->
+        </div><!-- container -->
+</footer>
+
+<!-- SCIPTS -->
+<script src="plugins/jquery-3.2.1.min.js"></script>
+<script src="plugins/bootstrap.min.js"></script>
+<script src="plugins/swiper.js"></script>
+<script src="plugins/mdb.min.js"></script>
+<script src="common/scripts.js"></script>
+<script src="cordova.js" type="text/javascript" ></script>
+</body>
+</html>

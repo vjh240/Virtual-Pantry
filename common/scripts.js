@@ -1,7 +1,8 @@
 var searchResult;
+var counter;
 function IngredientSearch () {
         var key = "PceKzy1SbMmshlGe7UK7JiFA7ioep1uB4WZjsnDRgfNeFJPoJm"; 
-        var num=10;
+        var num=15;
         url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number="+num+"&ranking=1&ingredients="
         var ing11=document.getElementById("form-autocomplete1").value;
         var ing22=document.getElementById("form-autocomplete2").value;
@@ -19,14 +20,21 @@ function IngredientSearch () {
         } 
         urlbulk+=testobj[num-1].id;
         var searchResult= JSON.parse(httpGet(urlbulk,key));
+        var counter=0;
         //$("#test").text(httpGet(urlbulk,key));
-        //rendernMenu(0);
+
+        //third save  
+        //saveSearch(recepies);      
+        //saveRecipe(searchResult); 
+
+        //RendernMenu();
         for(i=0;i<6;i++)
         {
             $("#menu"+i+"name").text(searchResult[i].title);
             document.getElementById("menu"+i+"img").src=searchResult[i].image;
             $("#menu"+i+"id").text(searchResult[i].id);
-            $("#menu"+i+"like").text("likes: "+searchResult[i].likes);
+            //$("#menu"+i+"likes").text(searchResult[i].description);
+            $("#menu"+i+"url").prop("href", searchResult[i].sourceUrl);
         }
 }
 
@@ -37,30 +45,57 @@ function httpGet(url,key){
     xmlHttp.send(null);
     return xmlHttp.responseText;
 }
-function renderMenu(page){
+
+function RenderMenu(){
     //const container = document.getElementById('menu-grid');
     //ReactDOM.render(element, container);
+    counter=counter+1;
     $("#test").text("renderMenu");
-    for(i=page*6;i<page*6+6;i++)
+    for(i=counter*6+0;i<counter*6+6;i++)
     {
-        $("#menu"+i+"name").text(searchResult[i].title);
-        document.getElementById("menu1img").src=searchResult[i].image;
-        $("#menu"+i+"id").text(searchResult[i].id);
-        $("#menu"+i+"like").text("likes: "+searchResult[i].likes);
+        $("#menu"+i+"name").text(searchResult[page*6+i].title);
+        document.getElementById("menu1img").src=searchResult[page*6+i].image;
+        $("#menu"+i+"id").text(searchResult[page*6+i].id);
+        //$("#menu"+i+"like").text("likes: "+searchResult[page*6+i].likes);
+        $("#menu"+i+"url").prop("href", searchResult[i].sourceUrl);
+
     }
  
+ }
+
+function loadIngredients(){
+    url="http://websys3.stern.nyu.edu:7006/catalog/ingredient";
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", url, false );  
+    xmlHttp.send(null);
+    var ingredientsTest = JSON.parse(xmlHttp.responseText);
+    //if 'good' is returned then good
+    //else 'recipe exists'
+    //this function is for both simple and complex recipe, depends on different url
 }
 
+function saveSearch(recipeJSON){
+    url="http://websys3.stern.nyu.edu:7006/catalog/recipe_detail";
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "POST", url, true );
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");   
+    xmlHttp.send(recipeJSON);
+    return xmlHttp.responseText;
+    //if 'good' is returned then good
+    //else 'recipe exists'
+    //this function is for both simple and complex recipe, depends on different url
+}
 
-function saveRecipe(url, recipeJSON){
-	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open( "POST", url, true );
-	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");	
-	xmlHttp.send(recipeJSON);
-	return xmlHttp.responseText;
-	//if 'good' is returned then good
-	//else 'recipe exists'
-	//this function is for both simple and complex recipe, depends on different url
+function saveRecipe(recipeJSON){
+    url="http://websys3.stern.nyu.edu:7006/catalog/simple_recipe";
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "POST", url, true );
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");   
+    xmlHttp.send(recipeJSON);
+    return xmlHttp.responseText;
+    //if 'good' is returned then good
+    //else 'recipe exists'
+    //this function is for both simple and complex recipe, depends on different url
 }
 
 function selectedActive(elem) {
