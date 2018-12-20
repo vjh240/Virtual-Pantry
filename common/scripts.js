@@ -8,11 +8,7 @@ function IngredientSearch () {
         var ing22=document.getElementById("form-autocomplete2").value;
         url = url + ing11 + "%2C" + ing22;
         var testobj = JSON.parse(httpGet(url,key));
-        //$("#egname").text(testobj[0].id+":"+testobj[0].title);
-        //document.getElementById("egimg").src=testobj[0].image;
-        //$("#egdes").text(testobj[0].likes);
-		//$("#test").text("test again")
-        $("#test").text(httpGet(url,key));     
+        //$("#test").text(httpGet(url,key));     
         urlbulk = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/informationBulk?ids="
         for(i=0;i<num-1;i++)
         {
