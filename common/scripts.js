@@ -1,27 +1,37 @@
 var searchResult;
-var counter;
+var simpleRecipe;
+var counter=0;
 function IngredientSearch () {
         var key = "PceKzy1SbMmshlGe7UK7JiFA7ioep1uB4WZjsnDRgfNeFJPoJm"; 
-        var num=15;
+        var num=18;
         url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number="+num+"&ranking=1&ingredients="
         var ing11=document.getElementById("form-autocomplete1").value;
         var ing22=document.getElementById("form-autocomplete2").value;
         url = url + ing11 + "%2C" + ing22;
         var testobj = JSON.parse(httpGet(url,key));
+ 	simpleRecipe=testobj;
+        //$("#egname").text(testobj[0].id+":"+testobj[0].title);
+        //document.getElementById("egimg").src=testobj[0].image;
+        //$("#egdes").text(testobj[0].likes);
+		//$("#test").text("test again")
         //$("#test").text(httpGet(url,key));     
         urlbulk = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/informationBulk?ids="
         for(i=0;i<num-1;i++)
         {
-              urlbulk = urlbulk + testobj[i].id + "%2C";  
+		if(testobj[i]){
+              urlbulk = urlbulk + testobj[i].id + "%2C";  }
         } 
         urlbulk+=testobj[num-1].id;
-        var searchResult= JSON.parse(httpGet(urlbulk,key));
-        var counter=0;
+        searchResult= JSON.parse(httpGet(urlbulk,key));
         //$("#test").text(httpGet(urlbulk,key));
 
         //third save  
-        //saveSearch(recepies);      
-        //saveRecipe(searchResult); 
+        //  var testtext1=saveRecipe(simpleRecipe); 
+       // $("#test").text(testtext1);
+	 //   var testtext2=saveSearch(searchResult);    
+	 //   $("#test").text(testtext1);     
+        saveRecipe(simpleRecipe); 
+saveSearch(searchResult);  
 
         //RendernMenu();
         for(i=0;i<6;i++)
@@ -46,14 +56,15 @@ function RenderMenu(){
     //const container = document.getElementById('menu-grid');
     //ReactDOM.render(element, container);
     counter=counter+1;
-    $("#test").text("renderMenu");
-    for(i=counter*6+0;i<counter*6+6;i++)
+        var page=counter*6;
+    //$("#test").text("renderMenu");
+    for(i=0;i<6;i++)
     {
-        $("#menu"+i+"name").text(searchResult[page*6+i].title);
-        document.getElementById("menu1img").src=searchResult[page*6+i].image;
-        $("#menu"+i+"id").text(searchResult[page*6+i].id);
-        //$("#menu"+i+"like").text("likes: "+searchResult[page*6+i].likes);
-        $("#menu"+i+"url").prop("href", searchResult[i].sourceUrl);
+        $("#menu"+i+"name").text(searchResult[page+i].title);
+        document.getElementById("menu"+i+"img").src=searchResult[page+i].image;
+        $("#menu"+i+"id").text(searchResult[page+i].id);
+        //$("#menu"+i+"like").text("likes: "+searchResult[page+i].likes);
+        $("#menu"+i+"url").prop("href", searchResult[page+i].sourceUrl);
 
     }
  
@@ -74,7 +85,7 @@ function saveSearch(recipeJSON){
     url="http://websys3.stern.nyu.edu:7006/catalog/recipe_detail";
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "POST", url, true );
-    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");   
+    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");   
     xmlHttp.send(recipeJSON);
     return xmlHttp.responseText;
     //if 'good' is returned then good
@@ -86,7 +97,7 @@ function saveRecipe(recipeJSON){
     url="http://websys3.stern.nyu.edu:7006/catalog/simple_recipe";
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "POST", url, true );
-    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");   
+    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");   
     xmlHttp.send(recipeJSON);
     return xmlHttp.responseText;
     //if 'good' is returned then good
