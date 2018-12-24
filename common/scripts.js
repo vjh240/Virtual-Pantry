@@ -9,7 +9,7 @@ function IngredientSearch () {
         var ing22=document.getElementById("form-autocomplete2").value;
         url = url + ing11 + "%2C" + ing22;
         var testobj = JSON.parse(httpGet(url,key));
- 	simpleRecipe=testobj;
+ 	    simpleRecipe=testobj;
         //$("#egname").text(testobj[0].id+":"+testobj[0].title);
         //document.getElementById("egimg").src=testobj[0].image;
         //$("#egdes").text(testobj[0].likes);
@@ -27,20 +27,20 @@ function IngredientSearch () {
 
         //third save  
         //  var testtext1=saveRecipe(simpleRecipe); 
-       // $("#test").text(testtext1);
-	 //   var testtext2=saveSearch(searchResult);    
-	 //   $("#test").text(testtext1);     
+        // $("#test").text(testtext1);
+	    // var testtext2=saveSearch(searchResult);    
+	    // $("#test").text(testtext1);     
         saveRecipe(simpleRecipe); 
-saveSearch(searchResult);  
+        saveSearch(searchResult);  
 
         //RendernMenu();
         for(i=0;i<6;i++)
         {
             $("#menu"+i+"name").text(searchResult[i].title);
             document.getElementById("menu"+i+"img").src=searchResult[i].image;
-            $("#menu"+i+"id").text(searchResult[i].id);
-            //$("#menu"+i+"likes").text(searchResult[i].description);
-            $("#menu"+i+"url").prop("href", searchResult[i].sourceUrl);
+            //$("#menu"+i+"id").text(searchResult[i].id);
+            $("#menu"+i+"like").text(searchResult[i].sourceName);
+            $("#menu"+i+"url").attr("href", searchResult[i].sourceUrl);
         }
 }
 
@@ -52,20 +52,28 @@ function httpGet(url,key){
     return xmlHttp.responseText;
 }
 
-function RenderMenu(){
+function RenderMenu(action){
     //const container = document.getElementById('menu-grid');
     //ReactDOM.render(element, container);
-    counter=counter+1;
-        var page=counter*6;
+    if(action=="back"){
+        if(counter>=1){
+        counter=counter-1;}
+    }
+    else if(action=="next")
+    {
+        counter=counter+1;
+    }
+    var page=counter*6;
+    if(page>=searchResult.length){return;}
     //$("#test").text("renderMenu");
     for(i=0;i<6;i++)
     {
-        $("#menu"+i+"name").text(searchResult[page+i].title);
-        document.getElementById("menu"+i+"img").src=searchResult[page+i].image;
-        $("#menu"+i+"id").text(searchResult[page+i].id);
-        //$("#menu"+i+"like").text("likes: "+searchResult[page+i].likes);
-        $("#menu"+i+"url").prop("href", searchResult[page+i].sourceUrl);
-
+        $("#menu"+i+"name").text(searchResult[page].title);
+        document.getElementById("menu"+i+"img").src=searchResult[page].image;
+        //$("#menu"+i+"id").text(searchResult[page].id);
+        $("#menu"+i+"like").text(searchResult[page].sourceName);
+        $("#menu"+i+"url").attr("href", searchResult[page].sourceUrl);
+        page=page+1;
     }
  
  }
