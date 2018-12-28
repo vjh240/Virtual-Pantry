@@ -1,31 +1,46 @@
 var searchResult;
+var simpleRecipe;
+var counter=0;
 function IngredientSearch () {
         var key = "PceKzy1SbMmshlGe7UK7JiFA7ioep1uB4WZjsnDRgfNeFJPoJm"; 
-        var num=10;
+        var num=18;
         url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number="+num+"&ranking=1&ingredients="
         var ing11=document.getElementById("form-autocomplete1").value;
         var ing22=document.getElementById("form-autocomplete2").value;
         url = url + ing11 + "%2C" + ing22;
         var testobj = JSON.parse(httpGet(url,key));
+ 	    simpleRecipe=testobj;
         //$("#egname").text(testobj[0].id+":"+testobj[0].title);
         //document.getElementById("egimg").src=testobj[0].image;
         //$("#egdes").text(testobj[0].likes);
+		//$("#test").text("test again")
         //$("#test").text(httpGet(url,key));     
         urlbulk = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/informationBulk?ids="
         for(i=0;i<num-1;i++)
         {
-              urlbulk = urlbulk + testobj[i].id + "%2C";  
+		if(testobj[i]){
+              urlbulk = urlbulk + testobj[i].id + "%2C";  }
         } 
         urlbulk+=testobj[num-1].id;
-        var searchResult= JSON.parse(httpGet(urlbulk,key));
+        searchResult= JSON.parse(httpGet(urlbulk,key));
         //$("#test").text(httpGet(urlbulk,key));
-        //rendernMenu(0);
+
+        //third save  
+        //  var testtext1=saveRecipe(simpleRecipe); 
+        // $("#test").text(testtext1);
+	    // var testtext2=saveSearch(searchResult);    
+	    // $("#test").text(testtext1);     
+        saveRecipe(simpleRecipe); 
+        saveSearch(searchResult);  
+
+        //RendernMenu();
         for(i=0;i<6;i++)
         {
             $("#menu"+i+"name").text(searchResult[i].title);
             document.getElementById("menu"+i+"img").src=searchResult[i].image;
-            $("#menu"+i+"id").text(searchResult[i].id);
-            $("#menu"+i+"like").text("likes: "+searchResult[i].likes);
+            //$("#menu"+i+"id").text(searchResult[i].id);
+            $("#menu"+i+"like").text(searchResult[i].sourceName);
+            $("#menu"+i+"url").attr("href", searchResult[i].sourceUrl);
         }
 }
 
@@ -36,30 +51,66 @@ function httpGet(url,key){
     xmlHttp.send(null);
     return xmlHttp.responseText;
 }
-function renderMenu(page){
+
+function RenderMenu(action){
     //const container = document.getElementById('menu-grid');
     //ReactDOM.render(element, container);
-    $("#test").text("renderMenu");
-    for(i=page*6;i<page*6+6;i++)
+    if(action=="back"){
+        if(counter>=1){
+        counter=counter-1;}
+    }
+    else if(action=="next")
     {
-        $("#menu"+i+"name").text(searchResult[i].title);
-        document.getElementById("menu1img").src=searchResult[i].image;
-        $("#menu"+i+"id").text(searchResult[i].id);
-        $("#menu"+i+"like").text("likes: "+searchResult[i].likes);
+        counter=counter+1;
+    }
+    var page=counter*6;
+    if(page>=searchResult.length){return;}
+    //$("#test").text("renderMenu");
+    for(i=0;i<6;i++)
+    {
+        $("#menu"+i+"name").text(searchResult[page].title);
+        document.getElementById("menu"+i+"img").src=searchResult[page].image;
+        //$("#menu"+i+"id").text(searchResult[page].id);
+        $("#menu"+i+"like").text(searchResult[page].sourceName);
+        $("#menu"+i+"url").attr("href", searchResult[page].sourceUrl);
+        page=page+1;
     }
  
+ }
+
+function loadIngredients(){
+    url="http://websys3.stern.nyu.edu:7006/catalog/ingredient";
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", url, false );  
+    xmlHttp.send(null);
+    var ingredientsTest = JSON.parse(xmlHttp.responseText);
+    //if 'good' is returned then good
+    //else 'recipe exists'
+    //this function is for both simple and complex recipe, depends on different url
 }
 
+function saveSearch(recipeJSON){
+    url="http://websys3.stern.nyu.edu:7006/catalog/recipe_detail";
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "POST", url, true );
+    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");   
+    xmlHttp.send(recipeJSON);
+    return xmlHttp.responseText;
+    //if 'good' is returned then good
+    //else 'recipe exists'
+    //this function is for both simple and complex recipe, depends on different url
+}
 
-function saveRecipe(url, recipeJSON){
-	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open( "POST", url, true );
-	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");	
-	xmlHttp.send(recipeJSON);
-	return xmlHttp.responseText;
-	//if 'good' is returned then good
-	//else 'recipe exists'
-	//this function is for both simple and complex recipe, depends on different url
+function saveRecipe(recipeJSON){
+    url="http://websys3.stern.nyu.edu:7006/catalog/simple_recipe";
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "POST", url, true );
+    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");   
+    xmlHttp.send(recipeJSON);
+    return xmlHttp.responseText;
+    //if 'good' is returned then good
+    //else 'recipe exists'
+    //this function is for both simple and complex recipe, depends on different url
 }
 
 function selectedActive(elem) {
