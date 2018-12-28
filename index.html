@@ -67,7 +67,7 @@
                                 <div>
                                 <a href="#" class="btn-primaryc plr-25 mt-2" onclick="IngredientSearch()"><b>START HERE</b></a>
                                 </div>
-                                <p id="test">test here</p>
+                                <!--p id="test">test here</p>
                                 <!--img id="egimg" src="" alt="Menu Image">
                                 <a href="#" id="egname" onclick=""><b>NA</b></a>
                                 <p id="egdes" >NA</p-->
@@ -129,6 +129,7 @@
                                                 <h5 class="mb-10" id="menu0name"></h5>
                                                 <p  class="pr-70" id="menu0id"></p>
                                                 <p  class="pr-70" id="menu0like"></p>
+												<a  class="pr-70" href="#" id="menu0url">more</a>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->
@@ -139,6 +140,7 @@
                                                 <h5 class="mb-10" id="menu1name"></h5>
                                                 <p  class="pr-70" id="menu1id"></p>
                                                 <p  class="pr-70" id="menu1like"></p>
+												<a  class="pr-70" href="#" id="menu1url">more</a>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->
@@ -150,6 +152,7 @@
                                                 <h5 class="mb-10" id="menu2name"><b></b></h5>
                                                 <p  class="pr-70" id="menu2id"></p>
                                                 <p class="pr-70" id="menu2like"></p>
+												<a  class="pr-70" href="#" id="menu2url">more</a>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->     
@@ -160,6 +163,7 @@
                                                 <h5 class="mb-10" id="menu3name"></h5>
                                                 <p  class="pr-70" id="menu3id"></p>
                                                 <p  class="pr-70" id="menu3like"></p>
+												<a  class="pr-70" href="#" id="menu3url">more</a>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->
@@ -171,6 +175,7 @@
                                                 <h5 class="mb-10" id="menu4name"><b></b></h5>
                                                 <p  class="pr-70" id="menu4id"></p>
                                                 <p class="pr-70" id="menu4like"></p>
+												<a  class="pr-70" href="#" id="menu4url">more</a>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->    
@@ -181,12 +186,16 @@
                                                 <h5 class="mb-10" id="menu5name"></h5>
                                                 <p  class="pr-70" id="menu5id"></p>
                                                 <p  class="pr-70" id="menu5like"></p>
+												<a  class="pr-70" href="#" id="menu5url">more</a>
                                         </div><!--s-right-->
                                 </div><!-- sided-90x -->
                         </div><!-- food-menu -->                  
                 </div><!-- row -->
 
-                <h6 class="center-text mt-10 mt-sm-10 mb-15"><a href="#" onClick="renderMenu(this.index)" class="btn-primaryc plr-15"><b>Next Page</b></a></h6>
+                <h6 class="center-text mt-10 mt-sm-10 mb-15">
+				<a href="#" onclick="renderMenu('back')" class="btn-primaryc plr-15"><b>Back</b></a>
+				<a href="#" onclick="renderMenu('next')" class="btn-primaryc plr-15"><b>Next</b></a>
+				</h6>
         </div><!-- container -->
 </section>
 
